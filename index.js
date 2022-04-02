@@ -36,59 +36,6 @@ fs.unlink("jour07.txt", function(err){
 	}
 })
 
-fs.stat("jour07.txt", function (err, stats) {
-
-	if (err) {
-		return console.error(err)
-	}
- 
-	console.log(stats)
-	
-	if (stats.isFile()) { 
-		console.log("C'est un fichier !")
-	}
- 
-})
-
-
-
-
-
-
-
-
-// fs.readFile("./jour07.txt", function (err, data) {
-    
-//     if (err) {
-//         console.error(err);
-//         return;
-//     }
-
-//     console.log("Lecture en différé : " + data.toString());
-
-//     fs.writeFile("Hello World", function (err, res) {
-//         if (err) {
-//             console.log(err);
-//             return;
-//         }
-//     }
-
-//             fs.unlink(path, function (err) {
-                
-//                 if (err) {
-//                     console.error(err);
-//                     return;
-//                 }
-//             })
-//         })
-//     })
-// })
-
-// {else}
-//     console.log("File doesn't exist")
-
-
-
 breakLines()
 
 // ## 02 - Map Double
@@ -97,13 +44,15 @@ breakLines()
 // - Créez une variable `double` qui appellera la méthode `.map()` pour contenir les doubles des valeurs de `array`
 // - Affichez les valeurs de `double` dans la console
 
-// var array = [1, 2, 3, 4, 5]
-// var double = array.map(function(number) {
-//     return number * 2
-// })
+const array = [1, 2, 3, 4, 5]
 
-// console.log(double)
-// breakLines()
+const double = array.map(function(number) {
+		return number * 2
+})
+
+console.log(double)
+
+breakLines()
 
 // ## 03 - Map Names
 
