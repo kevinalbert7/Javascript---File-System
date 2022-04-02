@@ -44,13 +44,13 @@ function breakLines(){
 // - Créez une variable `double` qui appellera la méthode `.map()` pour contenir les doubles des valeurs de `array`
 // - Affichez les valeurs de `double` dans la console
 
-const array = [1, 2, 3, 4, 5]
+// const array = [1, 2, 3, 4, 5]
 
-const double = array.map(function(number) {
-		return number * 2
-})
+// const double = array.map(function(number) {
+// 		return number * 2
+// })
 
-console.log(double)
+// console.log(double)
 
 breakLines()
 
@@ -85,13 +85,14 @@ breakLines()
 // - Créez une variable `numbers` qui appellera la méthode `.filter()` pour contenir les **nombres** de `array`
 // - Affichez les valeurs de type `number` dans la console
 
-// var array = [1, "toto", 34, "javascript", 8]
-// var numbers = array.filter(function(num){
-//     return typeof(num) === "number"
-// })
+const array = [1, "toto", 34, "javascript", 8]
+const numbers = array.filter(function(number) {
+	return typeof(number) === "number"
+})
 
-// console.log(numbers)
-// breakLines()
+console.log(numbers)
+
+breakLines()
 
 // ## 05 - Filter Even
 
