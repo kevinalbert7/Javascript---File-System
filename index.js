@@ -10,33 +10,33 @@ function breakLines(){
 // - Modifier le contenu du fichier et l'afficher
 // - Supprimer le fichier
 
-var fs = require("fs")
+// var fs = require("fs")
 
-fs.readFile("jour07.txt", function (err, data) {
+// fs.readFile("jour07.txt", function (err, data) {
 	
-	if (err) {
-	   console.error(err)
-	   return
-	}
+// 	if (err) {
+// 	   console.error(err)
+// 	   return
+// 	}
  
-	console.log("Lecture en différé : " + data.toString())
-})
+// 	console.log("Lecture en différé : " + data.toString())
+// })
 
-fs.writeFile("jour07.txt", "Hello Word",  function(err) {
+// fs.writeFile("jour07.txt", "Hello Word",  function(err) {
 
-	if (err) {
-		return console.error(err)
-	}
-})
+// 	if (err) {
+// 		return console.error(err)
+// 	}
+// })
 
-fs.unlink("jour07.txt", function(err){
+// fs.unlink("jour07.txt", function(err){
 
-	if (err) {
-		return console.error(err)
-	}
-})
+// 	if (err) {
+// 		return console.error(err)
+// 	}
+// })
 
-breakLines()
+// breakLines()
 
 // ## 02 - Map Double
 
@@ -60,23 +60,24 @@ breakLines()
 // - Créez une variable `shortNames` qui appellera la méthode `.map()` pour contenir une version compacte de `longNames` :
 // - Affichez les valeurs de `shortNames` dans la console
 
-// var longNames = [
-// 	{
-// 		firstName: "Jane",
-// 		lastName: "Doe"
-// 	},
-// 	{
-// 		firstName: "John",
-// 		lastName: "Smith"
-// 	}
-// ]
+const longNames = [
+	{
+		firstName: "Jane",
+		lastName: "Doe"
+	},
+	{
+		firstName: "John",
+		lastName: "Smith"
+	}
+]
 
-// var shortNames = longNames.map( function(name){
-//     return { name: `${name.firstName} ${name.lastName}` }
-// })
+const shortNames = longNames.map(function(people) {
+	return `${people.firstName} ${people.lastName}`
+})
 
-// console.log(shortNames)
-// breakLines()
+console.log(shortNames)
+
+breakLines()
 
 // ## 04 - Filter Numbers
 
