@@ -85,12 +85,12 @@ breakLines()
 // - Créez une variable `numbers` qui appellera la méthode `.filter()` pour contenir les **nombres** de `array`
 // - Affichez les valeurs de type `number` dans la console
 
-const array = [1, "toto", 34, "javascript", 8]
-const numbers = array.filter(function(number) {
-	return typeof(number) === "number"
-})
+// const array = [1, "toto", 34, "javascript", 8]
+// const numbers = array.filter(function(number) {
+// 	return typeof(number) === "number"
+// })
 
-console.log(numbers)
+// console.log(numbers)
 
 breakLines()
 
@@ -100,62 +100,65 @@ breakLines()
 // - Créez une variable `even` qui appellera la méthode `.filter()` pour contenir les nombres **pairs** de `numbers`
 // - Affichez les valeurs de `even` dans la console
 
-// var numbers = [1, 2, 3, 4, 5, 6, 7, 8]
-// var even = numbers.filter(function(num){
-//     return num % 2 === 0
-// })
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8]
+const even = numbers.filter(function(number) {
+	return number % 2 === 0
+})
 
-// console.log(even)
+console.log(even)
 
 breakLines
 
 // ## 06 - Cakes
 
-
 // - Créez une variable `cakes` contenant la valeur suivante :
 // - À l'aide des méthodes `.filter()` et `.map()`, vous donnerez le statut "sold out !" aux gâteaux au chocolat
 // - Ces deux gâteaux doivent être stockés dans une nouvelle variable, affichez-la dans la console
 
-// var cakes = [
-// 	{
-// 		name: "cake",
-// 		flavor: "vanilla",
-// 		status: "available"
-// 	},
-// 	{
-// 		name: "brownie",
-// 		flavor: "chocolate",
-// 		status: "available"
-// 	},
-// 	{
-// 		name: "pie",
-// 		flavor: "strawberry",
-// 		status: "available"
-// 	},
-// 	{
-// 		name: "muffin",
-// 		flavor: "pistachio",
-// 		status: "available"
-// 	},
-// 	{
-// 		name: "donut",
-// 		flavor: "chocolate",
-// 		status: "available"
-// 	},
-// ]
+const cakes = [
+	{
+		name: "cake",
+		flavor: "vanilla",
+		status: "available"
+	},
+	{
+		name: "brownie",
+		flavor: "chocolate",
+		status: "available"
+	},
+	{
+		name: "pie",
+		flavor: "strawberry",
+		status: "available"
+	},
+	{
+		name: "muffin",
+		flavor: "pistachio",
+		status: "available"
+	},
+	{
+		name: "donut",
+		flavor: "chocolate",
+		status: "available"
+	},
+]
 
-// var choco = cakes.filter(function(str) {
-//     return str.flavor === "chocolate" && str.status === "available"
-// })
+const cakesSoldOut = cakes
+	.filter(function(cake) {
+		return cake.flavor === "chocolate"
+	})
 
-// console.log(choco)
+	.map(function(cake) {
+		return {
+			...cake,
+			status: "sold out !"
+		}
+	})
 
-// var dispo = choco.map(function(sold) {
-//     return sold.status = "sold out"
-// })
+	
+console.log(cakesSoldOut)
 
-// console.log(choco)
-// breakLines
+breakLines
 
 // ## ⭐ Bonus
 
@@ -167,6 +170,57 @@ breakLines
 //     - Si la lettre n'est pas dans le mot, le message suivant s'affiche : "oups... plus que x chances !" (x sera remplacé par le nombre de tentatives restantes)
 
 // ⇒ Afficher un message en cas de victoire ou défaite 
+
+const prompt = require("prompt");
+
+const word = "Matin"
+const guesses = []
+const solution = []
+
+while(word.length !== 5) {
+	word = randomWord()
+	word = word.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+}
+
+console.log(word)
+
+prompt.start()
+
+const attempts = 0
+
+const play = () => {
+
+	prompt.get({ name: "input", description: "proposer une lettre", pattern: /^\w{1}$/ }, function(err, res) {
+		attempts = attempts + 1
+		guesses.push(res.input)
+
+		if (attempts === 10) {
+			console.log("Plus de tentatives restantes")
+		} else {
+			solution = word.split("").map(function(letter) {
+				return guesses.includes(letter) ? letter : "_"
+			})
+
+			play()
+		}
+	})
+
+	console.log(attempts)
+	console.log(guesses)
+	console.log(solution)
+	console.log(solution.join(""))
+
+	if (solution.join("") === word) {
+		console.log("Vous avez gagné !")
+	}
+}
+
+play()
+
+
+
+
+
 
 // var prompt = require("prompt")
 // var beep = require("beepbeep")
